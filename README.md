@@ -29,9 +29,9 @@ GLUE is a widely used benchmark for Natural Language Understanding (NLU) tasks. 
 **WNLI:** In this task, a system must read a sentence with a pronoun and select the referent of that pronoun from a list of choices. To convert the problem into sentence pair classification, we construct sentence pairs by replacing the ambiguous pronoun with each possible referent. The task is to predict if the sentence with the pronoun substituted is entailed by the original sentence
 
 ## Baseline 
-InferSent: I want to implement this as a first baseline. It generates sentence embeddings using GloVe pretrained embeddings and a BiLSTM. At each time step, take the concatenation of two LSTM hidden vectors and do max pooling on the vectors to get the sentence embeddings. For a single sentence task, use a 512D MLP classifier, for sentence-pair tasks, input u;v;|u-v|;|u*v| to the 512D MLP classifier.
+**InferSent:** InferSent is a sentence embeddings method that provides semantic representations for English sentences. It is trained on natural language inference data and generalizes well to many different tasks. I want to implement this as a first baseline. It generates sentence embeddings using GloVe pretrained embeddings and a BiLSTM. At each time step, take the concatenation of two LSTM hidden vectors and do max pooling on the vectors to get the sentence embeddings. For a single sentence task, use an MLP classifier, for sentence-pair tasks, input u;v;|u-v|;|u*v| to the MLP classifier.
 
-You can augment the InferSent Model with pretrained ELMo and CoVe.
+You can augment the InferSent Model with pretrained **ELMo** and **CoVe**.
 
 ELMo can be integrated into almost all neural NLP tasks with simple concatenation to the embedding layer. 
 
@@ -44,6 +44,22 @@ Both ELMo and CoVe require task specific architectures. This issue is resolved w
 
 Question: How do we integrate CoVe into our InferSent model? 
 Possible Answer: Concatenate GloVe, ELMo and CoVe all together in the embedding layer.
+
+First Results
+
+I acquired the sentence embeddings using pretrained InferSent for the sentences in CoLA task. I trained using Adam Optimizer with the learning rate set to 0.01 for 100 epochs. The accuracy results after the first epoch and the other epochs are actually not different on the validation set, but for the training set the accuracy is getting better after each epoch, as expected. The results are given in the table below. Test set results are not given because their labels are made private by the GLUE task authors.
+
+| Train | Dev |
+| --- | --- |
+| 81.663 | 69.511 |
+
+Second Results
+
+| Train | Dev |
+| --- | --- |
+| 81.663 | 69.511 |
+
+Future Work
 
 References
 
