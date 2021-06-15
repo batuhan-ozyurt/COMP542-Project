@@ -1,6 +1,6 @@
 # COMP542-Project
 
-Research Log: [Link](https://docs.google.com/document/d/1TU-SytN72VAUvIoxig2BsL9KrK_iTZogxV5SyCIbNI4/edit?usp=sharing)
+[Research Log](https://docs.google.com/document/d/1TU-SytN72VAUvIoxig2BsL9KrK_iTZogxV5SyCIbNI4/edit?usp=sharing)
 
 ## GLUE Dataset
 
